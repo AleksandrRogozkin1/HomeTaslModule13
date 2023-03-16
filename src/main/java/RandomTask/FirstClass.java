@@ -1,4 +1,4 @@
-package Module13;
+package RandomTask;
 
 public class FirstClass {
 }
