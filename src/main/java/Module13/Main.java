@@ -42,6 +42,10 @@ public class Main {
         User userById=Utils.getInformationAboutObjectFromId(URI.create(USERS), 3);
         System.out.println(userById);
 
+        System.out.println("\n\nTask1.6");
+        User userByName=Utils.getInformationAboutObjectFromName(URI.create(USERS), "Antonette");
+        System.out.println(userByName);
+
 
     }
 }

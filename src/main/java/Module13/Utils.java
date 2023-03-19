@@ -1,6 +1,8 @@
 package Module13;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
@@ -74,8 +76,17 @@ public class Utils {
         System.out.println(response.statusCode());
         return GSON.fromJson(response.body(), User.class);
     }
-//    public static getInformationAboutObjectFromName(){
-//
-//    }
+    public static User getInformationAboutObjectFromName(URI uri,String name) throws IOException, InterruptedException {
+        HttpRequest request=HttpRequest.newBuilder()
+                .uri(URI.create(String.valueOf(uri+"?username="+name)))
+                .GET()
+                .build();
+        HttpResponse<String> response =
+                CLIENT.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.statusCode());
+        JsonArray jsonArray = JsonParser.parseString(response.body()).getAsJsonArray();
+        return GSON.fromJson(jsonArray.get(0), User.class);
+
+    }
 
 }
