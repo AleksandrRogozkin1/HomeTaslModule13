@@ -6,7 +6,7 @@ public class User {
 
     private int id;
     private String name;
-    private String userName;
+    private String username;
     private String email;
 
 
@@ -18,8 +18,8 @@ public class User {
         return name;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
     public String getEmail() {
@@ -35,7 +35,7 @@ public class User {
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public void setEmail(String email) {
@@ -48,12 +48,12 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return id == user.id && Objects.equals(name, user.name) &&
-                Objects.equals(userName, user.userName) && Objects.equals(email, user.email);
+                Objects.equals(username, user.username) && Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, userName, email);
+        return Objects.hash(id, name, username, email);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", userName='" + userName + '\'' +
+                ", userName='" + username + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }
