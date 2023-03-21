@@ -11,8 +11,8 @@ import java.net.http.HttpResponse;
 import java.util.List;
 
 public class Main {
-    public static final String USERS = "https://jsonplaceholder.typicode.com/users";
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static final String USERS = "https://jsonplaceholder.typicode.com";
+    public static void main(String[] args) throws Exception {
         System.out.println("Task1.1");
         User user = new User();
         user.setId(1);
@@ -45,6 +45,15 @@ public class Main {
         System.out.println("\n\nTask1.6");
         User userByName=Utils.getInformationAboutObjectFromName(URI.create(USERS), "Antonette");
         System.out.println(userByName);
+
+        System.out.println("\n\nTask2");
+        int userId = 5;
+        int lastPostId = Utils.ObjectLastPost(URI.create(USERS), userId);
+        String commentsJson = Utils.findLastPostComments(URI.create(USERS), userId, lastPostId);
+        Utils.commentToJson(commentsJson, userId, lastPostId);
+
+        System.out.println("\n\nTask3");
+        Utils.findAndWrite(URI.create(USERS), 1);
 
 
     }
